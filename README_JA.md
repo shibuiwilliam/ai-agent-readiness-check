@@ -8,6 +8,10 @@ AIエージェントを作るのはワクワクしますよね。でも本番環
 
 12の質問に答えるだけで、明確なスコアと具体的な改善ポイントがわかります。
 
+## 今すぐ試す
+
+**[Readiness Checkを開く](https://ai-agent-readiness-check-2o25mm07r-shibuiwilliams-projects.vercel.app/)**
+
 ## 使い方
 
 ### 1. 12の質問に答える

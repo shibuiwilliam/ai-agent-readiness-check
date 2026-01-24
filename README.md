@@ -8,6 +8,10 @@ Building an AI agent is exciting. But before you deploy it to production, you ne
 
 Answer 12 straightforward questions, and you'll get a clear readiness score along with practical recommendations.
 
+## Try It Now
+
+**[Launch the Readiness Check](https://ai-agent-readiness-check-2o25mm07r-shibuiwilliams-projects.vercel.app/)**
+
 ## How It Works
 
 ### 1. Answer 12 Questions
