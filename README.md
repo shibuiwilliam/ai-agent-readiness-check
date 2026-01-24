@@ -10,7 +10,7 @@ Answer 12 straightforward questions, and you'll get a clear readiness score alon
 
 ## Try It Now
 
-**[Launch the Readiness Check](https://ai-agent-readiness-check-2o25mm07r-shibuiwilliams-projects.vercel.app/)**
+**[Launch the Readiness Check](https://ai-agent-readiness-check.vercel.app/)**
 
 ## How It Works
 

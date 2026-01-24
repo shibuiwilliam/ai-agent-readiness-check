@@ -10,7 +10,7 @@ AIエージェントを作るのはワクワクしますよね。でも本番環
 
 ## 今すぐ試す
 
-**[Readiness Checkを開く](https://ai-agent-readiness-check-2o25mm07r-shibuiwilliams-projects.vercel.app/)**
+**[Readiness Checkを開く](https://ai-agent-readiness-check.vercel.app/)**
 
 ## 使い方
 
