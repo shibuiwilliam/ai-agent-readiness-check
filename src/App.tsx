@@ -1,5 +1,6 @@
 import { Header } from "./components/layout/Header";
 import { Container } from "./components/layout/Container";
+import { Footer } from "./components/layout/Footer";
 import { RubricList } from "./components/rubric/RubricList";
 import { ScoreSummary } from "./components/result/ScoreSummary";
 import { ReadinessLevel } from "./components/result/ReadinessLevel";
@@ -19,7 +20,7 @@ function App() {
   const { activeRubric, scrollToRubric } = useActiveRubric({ offset: 80 });
 
   return (
-    <div className="min-h-screen bg-gray-100">
+    <div className="min-h-screen bg-gray-100 flex flex-col">
       <Header onReset={resetScores} />
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
@@ -66,6 +67,7 @@ function App() {
           </div>
         </div>
       </Container>
+      <Footer />
       <FloatingSummary rubrics={rubrics} scores={scores} level={level} />
       <MiniArchitectureIndicator
         activeRubric={activeRubric}
