@@ -67,7 +67,7 @@ export function TermsOfUse({ isOpen, onClose }: TermsOfUseProps) {
                 <p key={index} className="text-gray-700 mb-2">
                   {text}
                 </p>
-              )
+              ),
             )}
           </section>
 
@@ -105,7 +105,7 @@ export function TermsOfUse({ isOpen, onClose }: TermsOfUseProps) {
                 <p key={index} className="text-gray-700 mb-2">
                   {text}
                 </p>
-              )
+              ),
             )}
           </section>
 
@@ -119,7 +119,7 @@ export function TermsOfUse({ isOpen, onClose }: TermsOfUseProps) {
                 <p key={index} className="text-gray-700 mb-2">
                   {text}
                 </p>
-              )
+              ),
             )}
           </section>
 
@@ -128,13 +128,11 @@ export function TermsOfUse({ isOpen, onClose }: TermsOfUseProps) {
             <h3 className="text-xl font-bold text-gray-900 mb-3">
               {t.termsOfUse.sections.dataAndPrivacy.title}
             </h3>
-            {t.termsOfUse.sections.dataAndPrivacy.content.map(
-              (text, index) => (
-                <p key={index} className="text-gray-700 mb-2">
-                  {text}
-                </p>
-              )
-            )}
+            {t.termsOfUse.sections.dataAndPrivacy.content.map((text, index) => (
+              <p key={index} className="text-gray-700 mb-2">
+                {text}
+              </p>
+            ))}
           </section>
 
           {/* Intellectual Property */}
@@ -147,7 +145,7 @@ export function TermsOfUse({ isOpen, onClose }: TermsOfUseProps) {
                 <p key={index} className="text-gray-700 mb-2">
                   {text}
                 </p>
-              )
+              ),
             )}
           </section>
 
@@ -161,7 +159,7 @@ export function TermsOfUse({ isOpen, onClose }: TermsOfUseProps) {
                 <p key={index} className="text-gray-700 mb-2">
                   {text}
                 </p>
-              )
+              ),
             )}
           </section>
 
@@ -173,29 +171,6 @@ export function TermsOfUse({ isOpen, onClose }: TermsOfUseProps) {
             {t.termsOfUse.sections.governingLaw.content.map((text, index) => (
               <p key={index} className="text-gray-700 mb-2">
                 {text}
-              </p>
-            ))}
-          </section>
-
-          {/* Contact */}
-          <section>
-            <h3 className="text-xl font-bold text-gray-900 mb-3">
-              {t.termsOfUse.sections.contact.title}
-            </h3>
-            {t.termsOfUse.sections.contact.content.map((text, index) => (
-              <p key={index} className="text-gray-700 mb-2">
-                {text.startsWith("http") ? (
-                  <a
-                    href={text}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-blue-600 hover:text-blue-800 underline"
-                  >
-                    {text}
-                  </a>
-                ) : (
-                  text
-                )}
               </p>
             ))}
           </section>

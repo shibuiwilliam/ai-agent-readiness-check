@@ -101,10 +101,6 @@ export interface Translations {
         title: string;
         content: string[];
       };
-      contact: {
-        title: string;
-        content: string[];
-      };
     };
   };
   footer: {
@@ -259,14 +255,7 @@ export const translations: Record<Language, Translations> = {
         governingLaw: {
           title: "10. 準拠法",
           content: [
-            "本規約は、法の抵触に関する規定を除き、お客様が居住する管轄区域の法律に準拠し、これに従って解釈されます。",
-          ],
-        },
-        contact: {
-          title: "11. お問い合わせ",
-          content: [
-            "本規約に関するご質問がある場合は、GitHubリポジトリのIssueを通じてお問い合わせください：",
-            "https://github.com/shibuiwilliam/ai-agent-readiness-check/issues",
+            "本規約は、日本国の法律に準拠し、これに従って解釈されます。",
           ],
         },
       },
@@ -349,8 +338,8 @@ export const translations: Record<Language, Translations> = {
         introduction: {
           title: "1. Introduction",
           content: [
-            "Thank you for using the AI Agent Production Readiness Check (the \"Tool\").",
-            "These Terms of Use (the \"Terms\") govern your use of the Tool. By using the Tool, you agree to be bound by these Terms.",
+            'Thank you for using the AI Agent Production Readiness Check (the "Tool").',
+            'These Terms of Use (the "Terms") govern your use of the Tool. By using the Tool, you agree to be bound by these Terms.',
           ],
         },
         purposeAndScope: {
@@ -363,7 +352,7 @@ export const translations: Record<Language, Translations> = {
         disclaimer: {
           title: "3. Disclaimer",
           content: [
-            "The Tool is provided \"as is\" without any warranties of any kind.",
+            'The Tool is provided "as is" without any warranties of any kind.',
             "The evaluation results provided by the Tool are for reference purposes only and do not determine whether an AI agent should be deployed to a production environment.",
             "The developers and contributors assume no responsibility for any damages arising from the use of the Tool.",
             "The developers and contributors assume no responsibility for any problems, damages, security incidents, data loss, or other consequences arising from deploying an AI agent to a production environment based on the Tool's evaluation results.",
@@ -421,14 +410,7 @@ export const translations: Record<Language, Translations> = {
         governingLaw: {
           title: "10. Governing Law",
           content: [
-            "These Terms shall be governed by and construed in accordance with the laws of the jurisdiction in which you reside, without regard to its conflict of law provisions.",
-          ],
-        },
-        contact: {
-          title: "11. Contact",
-          content: [
-            "If you have any questions about these Terms, please contact us through the GitHub repository Issues:",
-            "https://github.com/shibuiwilliam/ai-agent-readiness-check/issues",
+            "These Terms shall be governed by and construed in accordance with the laws of Japan.",
           ],
         },
       },

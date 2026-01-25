@@ -2,9 +2,9 @@
 
 ## プロジェクト概要
 
-2025-2026年の主要AIエージェント評価フレームワーク（CLEAR, ReliabilityBench, Agent GPA, OpenAgentSafety, MemoryAgentBench）を統合した、エージェントの本番運用適合性を判定するインタラクティブなチェックリストWebアプリケーション。
+2025-2026年の主要AIエージェント評価フレームワーク（CLEAR, ReliabilityBench, Agent GPA, OpenAgentSafety, MemoryAgentBench, RADAR, SDQM, CodeMem）を統合した、エージェントの本番運用適合性を判定するインタラクティブなチェックリストWebアプリケーション。
 
-**Ultimate Edition**: 6 Rubrics / 19 Check Items / Max 95 Points
+**Integrated Edition**: 6 Rubrics / 21 Check Items / Max 105 Points
 
 ## 技術スタック
 
@@ -20,14 +20,14 @@
 ### コア機能
 
 1. **6つのRubric（大項目）の評価UI**
-    - Rubric 1: Reliability & Robustness（信頼性と堅牢性）
-    - Rubric 2: Efficacy & Logic（有効性と論理性）
-    - Rubric 3: Safety & Governance（安全性とガバナンス）
-    - Rubric 4: Observability & Ops（可観測性と運用）
-    - Rubric 5: Advanced Security Architecture（高度セキュリティアーキテクチャ）
-    - Rubric 6: Cognitive Architecture & Memory（認知アーキテクチャとメモリ）
+    - Rubric 1: Reliability & Robustness（信頼性と堅牢性）- 4項目
+    - Rubric 2: Efficacy & Performance（有効性と性能）- 3項目
+    - Rubric 3: Safety & Governance（安全性とガバナンス）- 3項目
+    - Rubric 4: Security Architecture（セキュリティアーキテクチャ）- 3項目
+    - Rubric 5: Observability & Operations（可観測性と運用）- 4項目
+    - Rubric 6: Memory & Knowledge（記憶と知識）- 4項目
 
-2. **19のチェック項目（小項目）のスコアリング**
+2. **21のチェック項目（小項目）のスコアリング**
     - 各項目: 1〜5点のスコア入力
     - 各スコアレベルの説明表示
     - 未評価/評価済みの状態管理
@@ -35,7 +35,7 @@
 
 3. **スコア集計と判定**
     - Rubricごとの小計（動的計算）
-    - 総合スコア（最大95点）
+    - 総合スコア（最大105点）
     - Readiness Levelの自動判定（Level 1〜4）
 
 4. **結果表示**
@@ -90,10 +90,10 @@ interface EvaluationState {
 
 // 判定結果
 type ReadinessLevel =
-  | { level: 1; name: 'Experimental'; range: '0-40' }
-  | { level: 2; name: 'Beta / Pilot'; range: '41-65' }
-  | { level: 3; name: 'Production Ready'; range: '66-80' }
-  | { level: 4; name: 'Autonomous Grade'; range: '81-95' };
+  | { level: 1; name: 'Experimental'; range: '0-45' }
+  | { level: 2; name: 'Beta / Pilot'; range: '46-70' }
+  | { level: 3; name: 'Production Ready'; range: '71-90' }
+  | { level: 4; name: 'Autonomous Grade'; range: '91-105' };
 ```
 
 ## コンポーネント構成
@@ -123,7 +123,7 @@ src/
 │   └── common/
 │       └── ProgressBar.tsx     # プログレスバー
 ├── data/
-│   └── rubrics.ts              # Rubric/CheckItem定義データ（6 Rubrics, 19 Items）
+│   └── rubrics.ts              # Rubric/CheckItem定義データ（6 Rubrics, 21 Items）
 ├── hooks/
 │   ├── useEvaluation.ts        # 評価状態管理（LocalStorage永続化）
 │   ├── useReadinessLevel.ts    # 判定ロジック
@@ -189,14 +189,14 @@ const levelColors = {
 
 ```typescript
 function calculateReadinessLevel(totalScore: number): ReadinessLevel {
-  if (totalScore <= 40) {
-    return { level: 1, name: 'Experimental', range: '0-40' };
-  } else if (totalScore <= 65) {
-    return { level: 2, name: 'Beta / Pilot', range: '41-65' };
-  } else if (totalScore <= 80) {
-    return { level: 3, name: 'Production Ready', range: '66-80' };
+  if (totalScore <= 45) {
+    return { level: 1, name: 'Experimental', range: '0-45' };
+  } else if (totalScore <= 70) {
+    return { level: 2, name: 'Beta / Pilot', range: '46-70' };
+  } else if (totalScore <= 90) {
+    return { level: 3, name: 'Production Ready', range: '71-90' };
   } else {
-    return { level: 4, name: 'Autonomous Grade', range: '81-95' };
+    return { level: 4, name: 'Autonomous Grade', range: '91-105' };
   }
 }
 ```
@@ -254,24 +254,27 @@ npm run preview    # ビルド結果のプレビュー
 - [SafePro (arXiv:2601.06663)](https://arxiv.org/abs/2601.06663)
 - [AgentSight (arXiv:2508.02736)](https://arxiv.org/abs/2508.02736)
 - [MemoryAgentBench (arXiv:2507.05257)](https://arxiv.org/abs/2507.05257)
+- [RADAR (arXiv:2510.08931)](https://arxiv.org/abs/2510.08931)
+- [SDQM (arXiv:2510.06596)](https://arxiv.org/abs/2510.06596)
+- [CodeMem (arXiv:2512.15813)](https://arxiv.org/abs/2512.15813)
 
 ### Rubric詳細
 
-| Rubric | 項目数 | 最大点 |
-|--------|--------|--------|
-| 1. Reliability & Robustness | 3 | 15 |
-| 2. Efficacy & Logic | 3 | 15 |
-| 3. Safety & Governance | 3 | 15 |
-| 4. Observability & Ops | 3 | 15 |
-| 5. Advanced Security Architecture | 3 | 15 |
-| 6. Cognitive Architecture & Memory | 4 | 20 |
-| **合計** | **19** | **95** |
+| Rubric | 項目数 | 最大点 | 評価観点 |
+|--------|--------|--------|----------|
+| 1. Reliability & Robustness | 4 | 20 | 一貫性、ノイズ耐性、回復力、決定論性 |
+| 2. Efficacy & Performance | 3 | 15 | 計画整合性、コスト効率、レイテンシ |
+| 3. Safety & Governance | 3 | 15 | リスク防御、攻撃耐性、権限管理 |
+| 4. Security Architecture | 3 | 15 | MCP、サンドボックス、DB防御 |
+| 5. Observability & Operations | 4 | 20 | 技術的追跡、ユーザー透明性、HITL、継続評価 |
+| 6. Memory & Knowledge | 4 | 20 | 長期記憶、忘却、汚染検出、合成データ |
+| **合計** | **21** | **105** | |
 
 ### Readiness Level 判定基準
 
 | Level | 名前 | スコア範囲 | アクション |
 |-------|------|-----------|-----------|
-| L1 | Experimental | 0-40 | 投入不可 - PoC段階 |
-| L2 | Beta / Pilot | 41-65 | 条件付き可 - HITL必須 |
-| L3 | Production Ready | 66-80 | 投入推奨 - スモールスタート |
-| L4 | Autonomous Grade | 81-95 | 最高水準 - 自律運用可 |
+| L1 | Experimental | 0-45 | 投入不可 - PoC段階 |
+| L2 | Beta / Pilot | 46-70 | 条件付き可 - HITL必須 |
+| L3 | Production Ready | 71-90 | 投入推奨 - スモールスタート |
+| L4 | Autonomous Grade | 91-105 | 最高水準 - 自律運用可 |

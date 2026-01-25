@@ -1,5 +1,10 @@
 // Utility functions for generating links to references and tools
 
+// Special arXiv PDF URL mappings (for papers where we want to link to PDF instead of abstract)
+const arxivPdfUrls: Record<string, string> = {
+  "2601.06112": "https://arxiv.org/pdf/2601.06112v1", // ReliabilityBench
+};
+
 // Parse arXiv reference and return URL
 export function parseArxivReference(reference: string): {
   text: string;
@@ -9,6 +14,13 @@ export function parseArxivReference(reference: string): {
   const arxivMatch = reference.match(/\(?arXiv:(\d{4}\.\d{4,5})\)?/i);
   if (arxivMatch) {
     const arxivId = arxivMatch[1];
+    // Check if there's a special PDF URL for this paper
+    if (arxivPdfUrls[arxivId]) {
+      return {
+        text: reference,
+        url: arxivPdfUrls[arxivId],
+      };
+    }
     return {
       text: reference,
       url: `https://arxiv.org/abs/${arxivId}`,
@@ -44,10 +56,8 @@ const toolUrls: Record<string, string> = {
   Kubernetes: "https://kubernetes.io/",
 
   // Testing & Benchmarks
-  "ReliabilityBench harness":
-    "https://github.com/UIUC-Chatbot/ReliabilityBench",
-  "ReliabilityBench Chaos Framework":
-    "https://github.com/UIUC-Chatbot/ReliabilityBench",
+  "ReliabilityBench harness": "https://arxiv.org/pdf/2601.06112v1",
+  "ReliabilityBench Chaos Framework": "https://arxiv.org/pdf/2601.06112v1",
   "SWE-bench": "https://www.swebench.com/",
   "Agent GPA": "https://github.com/AI-Research-Agent/Agent-GPA",
   HumanEval: "https://github.com/openai/human-eval",
@@ -56,6 +66,8 @@ const toolUrls: Record<string, string> = {
   "Recovery-Bench (Letta AI)": "https://github.com/letta-ai/recovery-bench",
   "Machine Unlearning Benchmark":
     "https://github.com/cleverhans-lab/machine-unlearning",
+  "HaystackCraft Benchmark": "https://github.com/Graph-COM/HaystackCraft",
+  "NIAH Test Suite": "https://arxiv.org/abs/2407.16695",
 
   // AI/ML Tools & Frameworks
   LangChain: "https://www.langchain.com/",
