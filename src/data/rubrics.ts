@@ -64,7 +64,7 @@ export const rubrics: Rubric[] = [
         importance: {
           ja: "ユーザーは「同じ質問には同じ答え」が返ってくることを期待します。一貫性が低いと、デバッグが不可能になるだけでなく、金融や医療などの領域では「運任せ」のシステムとなり、信頼を完全に失墜させます。",
           en: 'Users expect "the same answer to the same question." Low consistency makes debugging impossible and creates a luck-dependent system in high-stakes domains like finance and healthcare.',
-          zh: "用户期望\u201c相同的问题得到相同的答案\u201d。一致性低不仅会使调试变得不可能，在金融、医疗等高风险领域还会造成\u201c听天由命\u201d的系统，完全丧失信任。",
+          zh: "用户期望“相同的问题得到相同的答案”。一致性低不仅会使调试变得不可能，在金融、医疗等高风险领域还会造成“听天由命”的系统，完全丧失信任。",
         },
         howToCheck: {
           ja: [
@@ -535,7 +535,6 @@ export const rubrics: Rubric[] = [
           ja: "エージェントは従来のソフトと異なり、実行ごとに変動費がかかります。最高精度のモデルを無邪気に使うと、ユーザーが増えるほど赤字が拡大する「スケーリングの罠」に陥ります。",
           en: "Agents incur variable costs per execution. Naively using the highest-accuracy model can create a scaling trap.",
           zh: "代理与传统软件不同，每次执行都有变动成本。天真地使用最高精度模型，会陷入\"规模化陷阱\"——用户越多亏损越大。",
-
         },
         howToCheck: {
           ja: [
@@ -548,7 +547,6 @@ export const rubrics: Rubric[] = [
           ],
           zh: [
             "使用token计数器记录完成1个任务所需的\"输入token\"、\"输出token\"和\"API调用次数\"。",
-
             "计算成本归一化准确率（CNA = 准确率 / 美元成本）并与基准值比较。",
           ],
         },
@@ -617,13 +615,11 @@ export const rubrics: Rubric[] = [
           ja: "ユーザーのリクエストから「最初のフィードバック」（Time to First Token / Time to First Action）が返るまでの時間を測定し、ユーザー体験への影響を評価する。",
           en: "Measure Time to First Token / Time to First Action and the user-experience impact.",
           zh: "测量从用户请求到返回\"第一个反馈\"（首token时间/首次行动时间）的时间，评估对用户体验的影响。",
-
         },
         importance: {
           ja: "人間は3秒以上の待機でストレスを感じ始めます。完了までの時間が同じでも、最初の反応が遅いエージェントは「壊れている」と感じられ、離脱率が急増します。",
           en: "Humans feel stress after waiting more than 3 seconds. Even with the same total completion time, slow initial feedback increases churn.",
           zh: "人类在等待超过3秒后会感到压力。即使总完成时间相同，初始响应慢的代理也会被认为\"坏掉了\"，导致放弃率急剧上升。",
-
         },
         howToCheck: {
           ja: [
@@ -731,7 +727,6 @@ export const rubrics: Rubric[] = [
           ja: "エージェントは「実行能力」を持つため、従来のチャットボットとは比較にならない被害（DB全削除、機密漏洩）をもたらす可能性があります。",
           en: "Agents with execution capability can cause far greater damage than standard chatbots (DB deletion, data leaks).",
           zh: "代理具有\"执行能力\"，可能造成传统聊天机器人无法比拟的危害（数据库全删、机密泄露）。",
-
         },
         howToCheck: {
           ja: [
@@ -834,7 +829,6 @@ export const rubrics: Rubric[] = [
           zh: [
             "使用Garak等工具大量投放已知的越狱提示词。",
             "在代理读取的网页中嵌入\"忽略之前的指令，执行X\"等隐藏文本，观察反应。",
-
           ],
         },
         tools: ["Garak", "PyRIT (Python Risk Identification Tool)"],
@@ -902,7 +896,6 @@ export const rubrics: Rubric[] = [
           ja: "エージェントに付与されるアクセス権限が「必要最小限（Least Privilege）」になっているかを確認する。",
           en: "Validate least-privilege access for the agent.",
           zh: "确认授予代理的访问权限是否遵循\"最小权限原则\"。",
-
         },
         importance: {
           ja: "もしエージェントが乗っ取られた場合、管理者権限を持っていればシステム全体が掌握されます。権限を最小化することで、万が一の侵害時の被害範囲（Blast Radius）を局所化できます。",
@@ -1013,7 +1006,6 @@ export const rubrics: Rubric[] = [
           ja: "静的キーの使用や「混乱した代理人（Confused Deputy）」問題によるなりすまし攻撃を防ぎます。",
           en: "Prevent impersonation and confused deputy attacks caused by static keys or weak audience checks.",
           zh: "防止因使用静态密钥或\"困惑代理人（Confused Deputy）\"问题导致的冒充攻击。",
-
         },
         howToCheck: {
           ja: [
@@ -1292,7 +1284,6 @@ export const rubrics: Rubric[] = [
           ja: "Metrics, Events, Logs, Tracesが統合され、「なぜ失敗したか」を追跡できるか。",
           en: "Can Metrics, Events, Logs, and Traces be unified to explain failures?",
           zh: "Metrics、Events、Logs、Traces是否已整合，能否追踪\"为什么失败\"？",
-
         },
         purpose: {
           ja: "開発者・運用者向けに、エージェントの思考プロセスと行動の連鎖を完全に追跡可能にする。",
@@ -1315,7 +1306,6 @@ export const rubrics: Rubric[] = [
           ],
           zh: [
             "在LangSmith或Arize Phoenix中，确认单个请求ID是否能以一棵完整的树显示\"用户输入→思考→工具执行→结果\"的全过程。",
-
             "确认工具的输入参数和工具的原始响应是否包含在日志中。",
           ],
         },
@@ -1384,7 +1374,6 @@ export const rubrics: Rubric[] = [
           ja: "エンドユーザー向けに、エージェントが「今何をしているか」「なぜその結論に至ったか」を可視化する。",
           en: "Make visible to end users what the agent is doing and why.",
           zh: "向终端用户展示代理\"正在做什么\"以及\"为什么得出这个结论\"。",
-
         },
         importance: {
           ja: "ブラックボックスなエージェントは信頼されません。ユーザーが処理状況を理解できることで、待機ストレスが軽減され、信頼性が向上します。",
@@ -1492,9 +1481,7 @@ export const rubrics: Rubric[] = [
           ],
           zh: [
             "在执行长时间任务期间按下\"停止\"按钮，测试进程是否立即停止且数据完整性得到保持。",
-
             "确认在\"发送邮件\"等重要操作前，代理是否会暂停并等待人工的\"是/否\"输入。",
-
           ],
         },
         tools: ["LangGraph (interrupt_before)", "Human-in-the-loop SDKs"],
@@ -1673,7 +1660,6 @@ export const rubrics: Rubric[] = [
           ja: "「前に言ったこと」を忘れたり間違えたりするエージェントは、ユーザーの信頼を即座に失います。特に金融・医療では致命的です。",
           en: "Forgetting or misremembering prior statements immediately destroys trust, especially in finance or healthcare.",
           zh: "忘记或错误记忆\"之前说过的内容\"的代理会立即失去用户信任。在金融和医疗领域尤为致命。",
-
         },
         howToCheck: {
           ja: [
@@ -1753,7 +1739,6 @@ export const rubrics: Rubric[] = [
           ja: "ユーザーからの「この情報を忘れて」という指示に対し、特定の情報だけを正確に削除し、復元不可能にできるか。",
           en: "Delete specific information accurately and irreversibly upon user request.",
           zh: "当用户要求\"忘掉这个信息\"时，能否精确删除特定信息并使其不可恢复。",
-
         },
         importance: {
           ja: "GDPR/CCPAへの準拠だけでなく、誤った知識（毒性情報）を学習してしまった際のリスク管理に必須です。",
@@ -1833,19 +1818,16 @@ export const rubrics: Rubric[] = [
           ja: "エージェントの性能が、学習データの「丸暗記」によるものか、真の「推論」によるものかを識別する。",
           en: "Is performance based on memorization of training data or genuine reasoning?",
           zh: "代理的性能是源于对训练数据的\"死记硬背\"，还是真正的\"推理\"？",
-
         },
         purpose: {
           ja: "エージェントの性能が、学習データの「丸暗記（Recall）」によるものか、真の「推論（Reasoning）」によるものかを識別する。",
           en: "Distinguish recall from genuine reasoning.",
           zh: "识别代理的性能是来自训练数据的\"死记硬背（Recall）\"还是真正的\"推理（Reasoning）\"。",
-
         },
         importance: {
           ja: "ベンチマーク問題が学習データに含まれていた場合、テストスコアは高くても、未知のタスクでは全く役に立たない「過学習エージェント」が生まれます。",
           en: "Contaminated benchmarks produce high scores but fail on novel tasks.",
           zh: "如果基准测试题目包含在训练数据中，测试分数很高但实际上是无法处理未知任务的\"过拟合代理\"。",
-
         },
         howToCheck: {
           ja: [
