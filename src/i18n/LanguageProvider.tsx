@@ -7,12 +7,14 @@ const STORAGE_KEY = "ai-agent-readiness-language";
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [language, setLanguageState] = useState<Language>(() => {
     const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved === "ja" || saved === "en") {
+    if (saved === "ja" || saved === "en" || saved === "zh") {
       return saved;
     }
     // Default to browser language or Japanese
     const browserLang = navigator.language.toLowerCase();
-    return browserLang.startsWith("ja") ? "ja" : "en";
+    if (browserLang.startsWith("ja")) return "ja";
+    if (browserLang.startsWith("zh")) return "zh";
+    return "en";
   });
 
   useEffect(() => {
