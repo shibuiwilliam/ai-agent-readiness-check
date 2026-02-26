@@ -147,10 +147,7 @@ export const rubrics: Rubric[] = [
         purpose: {
           ja: "ユーザーの曖昧な指示、誤字脱字に対する耐性、および大量の情報（Haystack）の中から紛らわしい情報（Distractor）に惑わされず正解を見つけ出す能力を統合的に検証する。",
           en: "Validate (1) robustness to ambiguous instructions and typos, and (2) ability to ignore semantic distractors in large context (Haystack).",
-          zh: "代理能否同时处理输入噪声（模糊指令、拼写错误）和上下文噪声（干扰信息）？",
-        },
-        importance: {
-          ja: "実世界の入力は常にノイズを含みます。また、RAGやWeb検索を行うエージェントは常にノイズまみれの情報を扱います。両方のノイズに対応できなければ実戦で通用しません。",
+          zh: "综合验证对模糊指令和拼写错误的鲁棒性，以及在大量信息（Haystack）中排除语义干扰（Distractor）找到正确答案的能力。",
           en: "Real-world input is always noisy. Agents using RAG or web search operate on noisy data by default. Failure in either dimension breaks real-world usability.",
           zh: "现实世界的输入始终包含噪声。使用RAG或网络搜索的代理默认就在处理充满噪声的数据。无法应对这两种噪声，就无法在实战中使用。",
         },
