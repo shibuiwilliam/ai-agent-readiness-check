@@ -10,6 +10,12 @@ import {
 } from "../../utils/scoring";
 import { parseArxivReference } from "../../utils/links";
 
+const PROGRESS_COLOR_THRESHOLDS = {
+  high: 0.85,
+  medium: 0.65,
+  low: 0.45,
+} as const;
+
 interface RubricCardProps {
   rubric: Rubric;
   scores: Record<string, ScoreLevel>;
@@ -25,9 +31,9 @@ export function RubricCard({ rubric, scores, onScoreChange }: RubricCardProps) {
 
   const getProgressColor = () => {
     const percentage = rubricScore / maxScore;
-    if (percentage >= 0.85) return "bg-green-500";
-    if (percentage >= 0.65) return "bg-blue-500";
-    if (percentage >= 0.45) return "bg-yellow-500";
+    if (percentage >= PROGRESS_COLOR_THRESHOLDS.high) return "bg-green-500";
+    if (percentage >= PROGRESS_COLOR_THRESHOLDS.medium) return "bg-blue-500";
+    if (percentage >= PROGRESS_COLOR_THRESHOLDS.low) return "bg-yellow-500";
     return "bg-red-500";
   };
 
