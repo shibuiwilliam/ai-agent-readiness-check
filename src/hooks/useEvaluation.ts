@@ -17,7 +17,11 @@ export function useEvaluation() {
   });
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+    } catch (error) {
+      console.error("Failed to save evaluation state:", error);
+    }
   }, [state]);
 
   const setScore = useCallback((itemId: string, score: ScoreLevel) => {

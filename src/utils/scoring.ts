@@ -46,49 +46,39 @@ export function getTotalMaxScore(rubrics: Rubric[]): number {
   return rubrics.reduce((sum, rubric) => sum + getRubricMaxScore(rubric), 0);
 }
 
+const SCORE_BG_COLORS: Record<NonNullable<ScoreLevel>, string> = {
+  1: "bg-red-500",
+  2: "bg-orange-500",
+  3: "bg-yellow-500",
+  4: "bg-blue-500",
+  5: "bg-green-500",
+};
+
+const SCORE_TEXT_COLORS: Record<NonNullable<ScoreLevel>, string> = {
+  1: "text-red-600",
+  2: "text-orange-600",
+  3: "text-yellow-600",
+  4: "text-blue-600",
+  5: "text-green-600",
+};
+
+const LEVEL_COLORS: Record<1 | 2 | 3 | 4, string> = {
+  1: "bg-red-100 border-red-500 text-red-800",
+  2: "bg-orange-100 border-orange-500 text-orange-800",
+  3: "bg-blue-100 border-blue-500 text-blue-800",
+  4: "bg-green-100 border-green-500 text-green-800",
+};
+
 export function getScoreColor(score: ScoreLevel): string {
-  switch (score) {
-    case 1:
-      return "bg-red-500";
-    case 2:
-      return "bg-orange-500";
-    case 3:
-      return "bg-yellow-500";
-    case 4:
-      return "bg-blue-500";
-    case 5:
-      return "bg-green-500";
-    default:
-      return "bg-gray-300";
-  }
+  if (score === null) return "bg-gray-300";
+  return SCORE_BG_COLORS[score];
 }
 
 export function getScoreTextColor(score: ScoreLevel): string {
-  switch (score) {
-    case 1:
-      return "text-red-600";
-    case 2:
-      return "text-orange-600";
-    case 3:
-      return "text-yellow-600";
-    case 4:
-      return "text-blue-600";
-    case 5:
-      return "text-green-600";
-    default:
-      return "text-gray-400";
-  }
+  if (score === null) return "text-gray-400";
+  return SCORE_TEXT_COLORS[score];
 }
 
 export function getLevelColor(level: 1 | 2 | 3 | 4): string {
-  switch (level) {
-    case 1:
-      return "bg-red-100 border-red-500 text-red-800";
-    case 2:
-      return "bg-orange-100 border-orange-500 text-orange-800";
-    case 3:
-      return "bg-blue-100 border-blue-500 text-blue-800";
-    case 4:
-      return "bg-green-100 border-green-500 text-green-800";
-  }
+  return LEVEL_COLORS[level];
 }
