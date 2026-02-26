@@ -9,6 +9,7 @@ interface HeaderProps {
 const DOC_URLS = {
   ja: "https://github.com/shibuiwilliam/ai-agent-readiness-check/blob/main/AIAgentReadinessCheck_JA.md",
   en: "https://github.com/shibuiwilliam/ai-agent-readiness-check/blob/main/AIAgentReadinessCheck_EN.md",
+  zh: "https://github.com/shibuiwilliam/ai-agent-readiness-check/blob/main/AIAgentReadinessCheck_EN.md",
 };
 
 export function Header({ onReset }: HeaderProps) {
@@ -45,7 +46,9 @@ export function Header({ onReset }: HeaderProps) {
                   <span>
                     {language === "ja"
                       ? "ドキュメントを見る"
-                      : "View Documentation"}
+                      : language === "zh"
+                        ? "查看文档"
+                        : "View Documentation"}
                   </span>
                   <span>↗</span>
                 </a>
@@ -92,6 +95,16 @@ export function Header({ onReset }: HeaderProps) {
                   }`}
                 >
                   EN
+                </button>
+                <button
+                  onClick={() => setLanguage("zh")}
+                  className={`px-3 py-1.5 text-sm transition-colors ${
+                    language === "zh"
+                      ? "bg-slate-500 text-white"
+                      : "text-slate-300 hover:bg-slate-600"
+                  }`}
+                >
+                  ZH
                 </button>
               </div>
               <button

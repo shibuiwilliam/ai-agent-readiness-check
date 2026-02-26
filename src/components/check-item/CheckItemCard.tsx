@@ -31,7 +31,7 @@ export function CheckItemCard({
             {item.id}. {item.name[language]}
           </h3>
           <p className="text-sm text-gray-500 mt-0.5">
-            {language === "ja" ? item.name.en : item.name.ja}
+            {language === "zh" ? item.name.en : language === "ja" ? item.name.en : item.name.ja}
           </p>
           <p className="text-gray-600 mt-2">{item.description[language]}</p>
         </div>
@@ -51,9 +51,13 @@ export function CheckItemCard({
             ? showDetails
               ? "詳細を非表示"
               : "評価目的・重要性・チェック方法を表示"
-            : showDetails
-              ? "Hide details"
-              : "Show purpose, importance & how to check"}
+            : language === "zh"
+              ? showDetails
+                ? "隐藏详情"
+                : "显示评估目的、重要性及检查方法"
+              : showDetails
+                ? "Hide details"
+                : "Show purpose, importance & how to check"}
         </span>
       </button>
 
@@ -63,7 +67,7 @@ export function CheckItemCard({
           {/* Evaluation Purpose */}
           <div>
             <h4 className="font-semibold text-gray-800 mb-1">
-              {language === "ja" ? "📋 評価の目的" : "📋 Evaluation Purpose"}
+              {language === "ja" ? "📋 評価の目的" : language === "zh" ? "📋 评估目的" : "📋 Evaluation Purpose"}
             </h4>
             <p className="text-gray-600">{item.purpose[language]}</p>
           </div>
@@ -73,7 +77,7 @@ export function CheckItemCard({
             <h4 className="font-semibold text-gray-800 mb-1">
               {language === "ja"
                 ? "⚠️ 実運用の重要性"
-                : "⚠️ Production Importance"}
+                : language === "zh" ? "⚠️ 生产重要性" : "⚠️ Production Importance"}
             </h4>
             <p className="text-gray-600">{item.importance[language]}</p>
           </div>
@@ -81,7 +85,7 @@ export function CheckItemCard({
           {/* How to Check */}
           <div>
             <h4 className="font-semibold text-gray-800 mb-1">
-              {language === "ja" ? "🔍 チェック方法" : "🔍 How to Check"}
+              {language === "ja" ? "🔍 チェック方法" : language === "zh" ? "🔍 检查方法" : "🔍 How to Check"}
             </h4>
             <ol className="list-decimal list-inside text-gray-600 space-y-1">
               {item.howToCheck[language].map((step, index) => (
@@ -93,7 +97,7 @@ export function CheckItemCard({
           {/* Recommended Tools */}
           <div>
             <h4 className="font-semibold text-gray-800 mb-1">
-              {language === "ja" ? "🛠️ 推奨ツール" : "🛠️ Recommended Tools"}
+              {language === "ja" ? "🛠️ 推奨ツール" : language === "zh" ? "🛠️ 推荐工具" : "🛠️ Recommended Tools"}
             </h4>
             <div className="flex flex-wrap gap-2">
               {item.tools.map((tool, index) => {

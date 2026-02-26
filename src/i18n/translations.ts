@@ -1,4 +1,4 @@
-export type Language = "ja" | "en";
+export type Language = "ja" | "en" | "zh";
 
 export interface Translations {
   header: {
@@ -417,6 +417,161 @@ export const translations: Record<Language, Translations> = {
     },
     footer: {
       termsOfUse: "Terms of Use",
+    },
+  },
+  zh: {
+    header: {
+      title: "AI Agent 生产就绪性检查",
+      subtitle:
+        "2025-2026 终极版 - 6个评测维度 / 19个检查项 / 最高95分",
+      reset: "重置",
+    },
+    scoreSummary: {
+      title: "分数摘要",
+      totalScore: "总分",
+    },
+    readinessLevel: {
+      scoreRange: "分数范围",
+    },
+    improvementTips: {
+      title: "改善建议",
+      reliabilityLow: "可靠性得分偏低时：",
+      reliabilityTip:
+        "在CI中引入pass@k测试，提高提示词的鲁棒性，或考虑从ReAct架构迁移到Reflexion（自我反思）架构。",
+      safetyLow: "安全性得分偏低时：",
+      safetyTip:
+        "采用OpenAgentSafety中经过基准测试的模型（如Claude 3.5 Sonnet、GPT-4o等），并强制执行系统级沙箱隔离（如Docker容器）。",
+      observabilityLow: "可观测性得分偏低时：",
+      observabilityTip:
+        "引入OpenTelemetry，并使用LangSmith或Arize Phoenix可视化追踪链路。",
+      advancedSecurityLow: "高级安全性得分偏低时：",
+      advancedSecurityTip:
+        "加强MCP服务器的认证与授权，引入基于gVisor或Firecracker的安全沙箱。数据库访问必须强制使用只读连接和查询护栏。",
+      memoryLow: "记忆能力得分偏低时：",
+      memoryTip:
+        "参考MemoryAgentBench基准测试，提升RAG精度和上下文管理的鲁棒性。考虑引入自我修正循环和选择性遗忘机制。",
+    },
+    floatingSummary: {
+      progress: "进度",
+      totalScore: "总分",
+    },
+    levels: {
+      experimental: {
+        name: "实验阶段",
+        action:
+          "【不可部署】处于PoC（概念验证）阶段，需要对架构进行根本性审查。若安全性和可靠性得分较低，则存在较高风险。",
+      },
+      beta: {
+        name: "Beta / 试点",
+        action:
+          "【有条件允许】可用于内部使用或有限用户发布，但必须强制要求人工监督（Human-in-the-loop），并限制影响范围。",
+      },
+      productionReady: {
+        name: "生产就绪",
+        action:
+          "【推荐部署】达到了面向普通商业用途的标准。建议强化第4至第6个评测维度，并以小规模方式上线。",
+      },
+      autonomousGrade: {
+        name: "自主级",
+        action:
+          "【最高标准】达到SOTA水平，适用于金融、医疗等任务关键型领域。请持续运行长期记忆与自主改进循环。",
+      },
+    },
+    rubrics: {
+      items: "项",
+    },
+    export: {
+      title: "导出报告",
+      description: "可将评估结果以Markdown格式下载。",
+      downloadMarkdown: "下载Markdown",
+    },
+    termsOfUse: {
+      title: "使用条款",
+      lastUpdated: "最后更新：2026年1月24日",
+      close: "关闭",
+      sections: {
+        introduction: {
+          title: "1. 简介",
+          content: [
+            "感谢您使用 AI Agent 生产就绪性检查（以下简称\"本工具\"）。",
+            "本使用条款（以下简称\"本条款\"）规定了您使用本工具的条件。使用本工具即表示您同意受本条款约束。",
+          ],
+        },
+        purposeAndScope: {
+          title: "2. 目的与适用范围",
+          content: [
+            "本工具提供参考信息，用于评估AI代理是否具备部署到生产环境的准备度。",
+            "本工具基于学术研究成果（包括ReliabilityBench、CLEAR Framework、Agent GPA、OpenAgentSafety和MemoryAgentBench等），这些仅为参考资料，不保证本工具评估结果的准确性。",
+          ],
+        },
+        disclaimer: {
+          title: "3. 免责声明",
+          content: [
+            "本工具以\"现状\"提供，不附带任何形式的保证。",
+            "本工具提供的评估结果仅供参考，不决定AI代理是否应部署到生产环境。",
+            "开发者及贡献者对因使用本工具而产生的任何损害不承担责任。",
+            "对于基于本工具评估结果将AI代理部署到生产环境所引发的问题、损害、安全事故、数据丢失或其他后果，开发者及贡献者不承担任何责任。",
+          ],
+        },
+        noWarranty: {
+          title: "4. 无保证声明",
+          content: [
+            "本工具不提供任何明示或默示的保证，包括但不限于适销性、特定用途适用性及不侵权的保证。",
+            "我们不保证本工具不会中断、无错误运行或其缺陷将被修复。",
+            "从本工具获取的任何信息或建议均不构成本条款未明确规定的保证。",
+          ],
+        },
+        limitationOfLiability: {
+          title: "5. 责任限制",
+          content: [
+            "在任何情况下，开发者或贡献者均不对因使用或无法使用本工具而导致的任何直接、间接、附带、特殊、惩罚性或后果性损害（包括但不限于利润损失、数据丢失或业务中断）承担责任。",
+            "即使开发者已被告知此类损害的可能性，上述条款仍适用。",
+            "某些司法管辖区不允许排除默示保证或限制附带或后果性损害的责任，在这些地区上述限制可能不适用。",
+          ],
+        },
+        userResponsibility: {
+          title: "6. 用户责任",
+          content: [
+            "请将本工具的评估结果仅作为参考信息，并自行承担关于将AI代理部署到生产环境的最终决策责任。",
+            "除本工具的评估结果外，请进行独立的安全评估、风险分析和测试。",
+            "强烈建议在将AI代理部署到生产环境之前咨询专业人士（安全专家、法律顾问等）。",
+            "您有责任查阅并遵守本工具推荐的任何工具或框架的使用条款和许可证。",
+          ],
+        },
+        dataAndPrivacy: {
+          title: "7. 数据与隐私",
+          content: [
+            "本工具将您的评估数据存储在浏览器的本地存储中。",
+            "本工具不会将您的数据传输到外部服务器。",
+            "为保护您的隐私，请勿在本工具中输入机密或个人信息。",
+          ],
+        },
+        intellectualProperty: {
+          title: "8. 知识产权",
+          content: [
+            "本工具依据MIT许可证提供。",
+            "您可以自由使用、修改和分发本工具的源代码，但须遵守MIT许可证的条款。",
+            "本工具引用的论文、框架和工具归其各自作者和组织所有。",
+          ],
+        },
+        modificationsAndUpdates: {
+          title: "9. 修改与更新",
+          content: [
+            "开发者保留随时修改本条款的权利，无需事先通知。",
+            "本条款的变更在发布到本页面时即生效。",
+            "在本条款变更后继续使用本工具，即表示您接受修改后的条款。",
+          ],
+        },
+        governingLaw: {
+          title: "10. 适用法律",
+          content: [
+            "本条款受日本法律管辖并依据其解释。",
+          ],
+        },
+      },
+    },
+    footer: {
+      termsOfUse: "使用条款",
     },
   },
 };
